@@ -4,12 +4,12 @@ import {
   noSerialize,
   Slot,
   useContextProvider,
-  useEnvData,
   getLocale,
   useStore,
   useSignal,
   $,
   useTask$,
+  useServerData,
 } from '@builder.io/qwik';
 import { loadRoute } from './routing';
 import type {
@@ -68,7 +68,7 @@ export const QwikCityProvider = component$<QwikCityProps>(() => {
     throw new Error(`Missing Qwik City Env Data`);
   }
 
-  const urlEnv = useEnvData<string>('url');
+  const urlEnv = useServerData<string>('url');
   if (!urlEnv) {
     throw new Error(`Missing Qwik URL Env Data`);
   }
